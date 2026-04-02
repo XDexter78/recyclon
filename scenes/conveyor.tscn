@@ -1,27 +1,76 @@
 [gd_scene format=3 uid="uid://dngwy5o8jwlyx"]
 
-[ext_resource type="Texture2D" uid="uid://swth8pjficj5" path="res://assets/conveyor.png" id="1_kqxj7"]
 [ext_resource type="Script" uid="uid://flvpd2n4mi66" path="res://scripts/conveyor.gd" id="1_y326v"]
+[ext_resource type="Texture2D" uid="uid://1r8kyf3icnec" path="res://assets/g1.png" id="2_dsf5a"]
+[ext_resource type="Texture2D" uid="uid://bc4v1c5482h8p" path="res://assets/g2.png" id="3_mk6lv"]
+[ext_resource type="Texture2D" uid="uid://bp140osd1qwhn" path="res://assets/g3.png" id="4_6i4sa"]
+[ext_resource type="Texture2D" uid="uid://dup2ttfbp4j5t" path="res://assets/g4.png" id="5_gn2eo"]
+[ext_resource type="Texture2D" uid="uid://dgqjtthv50f66" path="res://assets/g5.png" id="6_ow48g"]
+[ext_resource type="Texture2D" uid="uid://s7b770dod0a4" path="res://assets/g7.png" id="7_uxv1o"]
+[ext_resource type="Texture2D" uid="uid://x2dljepyrolc" path="res://assets/g8.png" id="8_hlv8x"]
+[ext_resource type="Texture2D" uid="uid://b54pm1tbhdy3u" path="res://assets/g9.png" id="9_vdior"]
+[ext_resource type="Texture2D" uid="uid://betxayd8alkxx" path="res://assets/g10.png" id="10_v23w7"]
+[ext_resource type="Texture2D" uid="uid://dtnshlyetyqm7" path="res://assets/g11.png" id="11_fxlcs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7hdvn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dsf5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mk6lv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6i4sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gn2eo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ow48g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uxv1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hlv8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vdior")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v23w7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fxlcs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_kqxj7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -173, -48, 0, 0, 0, 0, 173, -48)
+"points": PackedVector2Array(0, 0, 0, 0, -400, -48, 0, 0, 0, 0, 400, -48)
 }
 point_count = 2
 
 [node name="conveyor" type="Node2D" unique_id=1555853558]
 script = ExtResource("1_y326v")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=800005743]
-position = Vector2(0, 1)
-texture = ExtResource("1_kqxj7")
-vframes = 4
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2053003208]
+position = Vector2(0, 60.049774)
+scale = Vector2(0.25, 0.21653053)
+sprite_frames = SubResource("SpriteFrames_7hdvn")
+frame_progress = 0.5540655
+offset = Vector2(73.333374, 416.66663)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1010037611]
 curve = SubResource("Curve2D_kqxj7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1467710675]
-position = Vector2(-173, -48)
+position = Vector2(-400, -48)
 
 [node name="Spawnpoint" type="Marker2D" parent="." unique_id=378228877]
-position = Vector2(-173, -48)
+position = Vector2(-400, -48)
