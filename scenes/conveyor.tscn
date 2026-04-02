@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dngwy5o8jwlyx"]
+
+[ext_resource type="Texture2D" uid="uid://swth8pjficj5" path="res://assets/conveyor.png" id="1_kqxj7"]
+[ext_resource type="Script" uid="uid://flvpd2n4mi66" path="res://scripts/conveyor.gd" id="1_y326v"]
+
+[sub_resource type="Curve2D" id="Curve2D_kqxj7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -173, -48, 0, 0, 0, 0, 173, -48)
+}
+point_count = 2
+
+[node name="conveyor" type="Node2D" unique_id=1555853558]
+script = ExtResource("1_y326v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=800005743]
+position = Vector2(0, 1)
+texture = ExtResource("1_kqxj7")
+vframes = 4
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1010037611]
+curve = SubResource("Curve2D_kqxj7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1467710675]
+position = Vector2(-173, -48)
+
+[node name="Spawnpoint" type="Marker2D" parent="." unique_id=378228877]
+position = Vector2(-173, -48)

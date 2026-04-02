@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://7gya0xhjfyvn"]
+
+[ext_resource type="Texture2D" uid="uid://bc27j7ab4r5ry" path="res://assets/Trash.png" id="1_epp6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epp6r"]
+size = Vector2(136, 184)
+
+[node name="Area2D" type="Area2D" unique_id=1166143261]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=581622600]
+texture = ExtResource("1_epp6r")
+region_enabled = true
+region_rect = Rect2(96, 88, 136, 184)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917521308]
+shape = SubResource("RectangleShape2D_epp6r")
