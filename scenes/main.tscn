@@ -1,14 +1,69 @@
 [gd_scene format=3 uid="uid://xrg0bmpi4nr5"]
 
 [ext_resource type="PackedScene" uid="uid://dngwy5o8jwlyx" path="res://scenes/conveyor.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cphmv83847hhp" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dbs8285lqpy3i" path="res://scenes/TrashBin.tscn" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://uyrf801nys7t" path="res://scripts/spawner.gd" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://dmdggjax1hw1w" path="res://scripts/split_manager.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://d314pohwje30k" path="res://scripts/hud.gd" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=1189460360]
+script = ExtResource("1_tbgi4")
+metadata/_edit_vertical_guides_ = [1152.0]
 
 [node name="Conveyor" parent="." unique_id=1555853558 instance=ExtResource("1_o5qli")]
-position = Vector2(557, 320)
+position = Vector2(542, 147)
 
 [node name="Spawner" type="Node" parent="." unique_id=1715606154]
 script = ExtResource("3_sugp2")
+min_interval = 0.65
 
 [node name="SpawnTimer" type="Timer" parent="Spawner" unique_id=144789423]
+
+[node name="Bins" type="Node2D" parent="." unique_id=166530047]
+
+[node name="OrganicBin" parent="Bins" unique_id=1806007152 instance=ExtResource("3_jyhfs")]
+position = Vector2(300, 450)
+
+[node name="RecyclableBin" parent="Bins" unique_id=1152328636 instance=ExtResource("3_jyhfs")]
+position = Vector2(500, 450)
+bin_type = "recyclable"
+
+[node name="LandfillBin" parent="Bins" unique_id=1124758829 instance=ExtResource("3_jyhfs")]
+position = Vector2(700, 450)
+bin_type = "landfill"
+
+[node name="BagsBin" parent="Bins" unique_id=1381096084 instance=ExtResource("3_jyhfs")]
+position = Vector2(900, 450)
+bin_type = "bags"
+
+[node name="SplitBin" parent="Bins" unique_id=636387055 instance=ExtResource("3_jyhfs")]
+position = Vector2(94, 115)
+bin_type = "split"
+
+[node name="SplitManager" type="Node" parent="." unique_id=1868943143]
+script = ExtResource("4_jyhfs")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1167400182]
+script = ExtResource("6_tefeu")
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=733396661]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1032.0
+offset_top = 17.0
+offset_right = -12.0
+offset_bottom = -597.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Puntos: 0"
+
+[node name="ErrorLabel" type="Label" parent="HUD" unique_id=812091671]
+offset_left = 7.0
+offset_top = 609.0
+offset_right = 47.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 24
+text = "Errores: 0"

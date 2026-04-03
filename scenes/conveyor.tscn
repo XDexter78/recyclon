@@ -52,25 +52,26 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_kqxj7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -400, -48, 0, 0, 0, 0, 400, -48)
+"points": PackedVector2Array(0, 0, 0, 0, -400, -30, 0, 0, 0, 0, 400, -30)
 }
 point_count = 2
 
 [node name="conveyor" type="Node2D" unique_id=1555853558]
 script = ExtResource("1_y326v")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2053003208]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2053003208]
 position = Vector2(0, 60.049774)
 scale = Vector2(0.25, 0.21653053)
 sprite_frames = SubResource("SpriteFrames_7hdvn")
-frame_progress = 0.5540655
+frame_progress = 0.3978271
 offset = Vector2(73.333374, 416.66663)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1010037611]
 curve = SubResource("Curve2D_kqxj7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1467710675]
-position = Vector2(-400, -48)
+position = Vector2(-400, -30)
+loop = false
 
 [node name="Spawnpoint" type="Marker2D" parent="." unique_id=378228877]
 position = Vector2(-400, -48)
