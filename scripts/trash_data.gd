@@ -1,11 +1,11 @@
-extends Node
+class_name TrashData
+extends Resource
 
+@export var name: String = ""
+@export var trash_type: String = "organic"  # organic, recyclable, landfill, bags, split
+@export var points: int = 10
+@export var animation_name: String = "default"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+# Solo para objetos tipo split: qué 2 objetos genera al separarse
+@export var split_result_1: TrashData = null
+@export var split_result_2: TrashData = null
